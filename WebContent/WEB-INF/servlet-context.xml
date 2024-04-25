@@ -8,22 +8,23 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-	<!-- 어떤 HandlerMapping을 쓸지 : 자동적용됨-->
-	<!-- <bean id="handlerMapping" class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/> -->
-	
-	<!-- 어떤 viewResolver를 쓸지 -->
-	<bean
-	id="viewResolver" 
-	class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-	p:prefix="/WEB-INF/"
-	p:suffix=".jsp"
-	/>
-	
+	<!-- Spring MVC 여러 기능을 지원 받을지-->
+	<mvc:annotation-driven/> 
+	<mvc:resources location="/resources/" mapping="/static/**"/>
+
+	<!--어떠한 HandlerMapping 을 쓸지 : 자동적으로 적용됨 -->
 	<!-- 자동으로 인스턴스 생성할 검색 대상 패키지 -->
 	<context:component-scan base-package="com.sds.movieadmin.controller"/>
 	
-	<!-- 스프링MVC 여러 기능을 지원받을지 -->
-	<mvc:annotation-driven/>
-	<mvc:resources location="/resources/" mapping="/static/**"/>
 	
 </beans>
+
+
+
+
+
+
+
+
+
+
