@@ -5,5 +5,5 @@
 	<insert id="insert" parameterType="Admin">
 		insert into admin(admin_id, admin_pwd, admin_name)
 		values(#{admin_id},#{admin_pwd},#{admin_name})
-	</insert>
+	</insert> 
 </mapper>
