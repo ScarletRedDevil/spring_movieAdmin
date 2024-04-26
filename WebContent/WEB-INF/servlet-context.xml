@@ -32,6 +32,11 @@
 			<aop:around pointcut-ref="loginPointcut" method="loginCheck"/>			
 		</aop:aspect>	
 	</aop:config>
+	
+	<!-- 영화진흥위원회 API Key -->
+	<bean id="key" class="java.lang.String">
+		<constructor-arg value="0173122db3da4fb149dade4d437aa368" />
+	</bean>
 		
 		
 </beans>

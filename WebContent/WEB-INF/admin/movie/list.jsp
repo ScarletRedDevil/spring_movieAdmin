@@ -78,23 +78,22 @@
 		                    <thead>
 		                        <tr>
 		                            <th>No</th>
-		                            <th>하위 카테고리명</th>
-		                            <th>이미지</th>
-		                            <th>상품명</th>
-		                            <th>브랜드</th>
-		                            <th>가격</th>
+		                            <th>영화코드</th>
+		                            <th>영화명</th>
+		                            <th>영화 유형</th>
+		                            <th>국가명</th>
+		                            <th>제작년도</th>
 		                        </tr>
 		                    </thead>
 		                    <tbody>
-		                    	<%for(int i=0;i<productList.size();i++){%>
-		                    	<%Product product = productList.get(i); %>
+		                    	<%for(int i=0;i<10;i++){%>
 		                        <tr>
-		                            <td><%=i+1%></td>
-		                            <td><%=product.getSubCategory().getSubname() %></td>
-		                            <td><img src="/static/product_img/<%=product.getFilename()%>" width="45px"></td>
-		                            <td><%=product.getProduct_name() %></td>
-		                            <td><%=product.getBrand() %></td>
-		                            <td><%=product.getPrice()%></td>
+		                            <td><%=i%></td>
+		                            <td><%=%></td>
+		                            <td></td>
+		                            <td></td>
+		                            <td></td>
+		                            <td></td>
 		                        </tr>
 		                        <%} %>
 		                    </tbody>
