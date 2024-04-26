@@ -6,3 +6,9 @@ create table admin(
 	, admin_pwd varchar(64)
 	, admin_name varchar(20)
 ) default character set utf8;
+
+create table movie(
+	movie_idx int primary key auto_increment
+	, moviecd varchar(8)
+	, url varchar(200)
+);

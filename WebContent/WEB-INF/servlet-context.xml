@@ -23,22 +23,20 @@
 	<bean id="globalExceptionHandler" class="com.sds.movieadmin.aop.GlobalExceptionHandler" />
 	
 	<!-- Aspect로 사용할 LoginAspect 등록 -->
-	<bean id="loginAspect" class="com.sds.movieadmin.aop.LoginAspect"/>
+	<!-- <bean id="loginAspect" class="com.sds.movieadmin.aop.LoginAspect"/> -->
 	
 	<!-- aop 설정 -->
+	<!-- 	
 	<aop:config>
 		<aop:aspect ref="loginAspect">
 			<aop:pointcut id="loginPointcut" expression="execution(public * com.sds.movieadmin.controller..*(..))" />
 			<aop:around pointcut-ref="loginPointcut" method="loginCheck"/>			
 		</aop:aspect>	
 	</aop:config>
+ 	-->		
 	
-	<!-- 영화진흥위원회 API Key -->
-	<bean id="key" class="java.lang.String">
-		<constructor-arg value="0173122db3da4fb149dade4d437aa368" />
-	</bean>
-		
-		
+	
+	
 </beans>
 
 

@@ -24,8 +24,8 @@ public class LoginAspect {
 		String uri = request.getRequestURI();
 		if(
 				uri.equals("/admin/loginform") || //로그인 폼 요청
-				uri.equals("/admin/registform") ||  //가입 요청 
-				uri.equals("/auth/admin")
+				uri.equals("/admin/registform")||   //가입 요청 
+				uri.equals("/auth/admin")   //로그인 요청 
 		) {
 			obj = joinPoint.proceed(); //원래 호출하려 했던 하위 컨트롤러의 메서드 호출해줌
 		}else {

@@ -1,10 +1,9 @@
-<%@page import="com.sds.mall.domain.Product"%>
+<%@page import="com.sds.movieadmin.domain.Movie"%>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%
-	
-	//컨트롤러에서 저장된, producList 꺼내기
-	List<Product> productList =(List)request.getAttribute("productList");
+	List<Movie> movieList=(List)request.getAttribute("movieList");
+	//out.print("가져온 영화 수는 "+movieList);
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,20 +79,21 @@
 		                            <th>No</th>
 		                            <th>영화코드</th>
 		                            <th>영화명</th>
-		                            <th>영화 유형</th>
+		                            <th>영화유형</th>
 		                            <th>국가명</th>
 		                            <th>제작년도</th>
 		                        </tr>
 		                    </thead>
 		                    <tbody>
-		                    	<%for(int i=0;i<10;i++){%>
+		                    	<%for(int i=0;i<movieList.size();i++){%>
+		                    	<%Movie movie = movieList.get(i); %>
 		                        <tr>
 		                            <td><%=i%></td>
-		                            <td><%=%></td>
-		                            <td></td>
-		                            <td></td>
-		                            <td></td>
-		                            <td></td>
+		                            <td><%=movie.getMovieCd()%></td>
+		                            <td><%=movie.getMovieNm() %></td>
+		                            <td><%=movie.getTypeNm() %></td>
+		                            <td><%=movie.getNationAlt() %></td>
+		                            <td><%=movie.getPrdtYear() %></td>
 		                        </tr>
 		                        <%} %>
 		                    </tbody>
