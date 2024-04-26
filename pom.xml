@@ -98,7 +98,7 @@
 		<dependency>
 		    <groupId>org.aspectj</groupId>
 		    <artifactId>aspectjweaver</artifactId>
-		    <version>1.8.14</version>
+		    <version>1.9.5</version>
 		    <scope>runtime</scope>
 		</dependency>
 		

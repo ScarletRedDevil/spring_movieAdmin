@@ -18,32 +18,41 @@ public class RestAdminController {
 	
 	@Autowired
 	private AdminService adminService;
-
+	
+	//관리자 가입 요청 처리 
 	@PostMapping("/admin")
 	public ResponseEntity regist(Admin admin) {
 		
-		adminService.regist(admin);
+		adminService.regist(admin);//3단계: 일 시키기
 		ResponseEntity entity=ResponseEntity.status(HttpStatus.OK).build();
 		
 		return entity;
 	}
 	
-	//로그인 요청 처리
+	//로그인 요청 처리 
 	@PostMapping("/auth/admin")
 	public ResponseEntity login(Admin admin, HttpSession session) {
 		
 		Admin dto = adminService.loginCheck(admin);
 		
-		//세션에 관리자 정보를 담아야함
+		//세션에 관리자 정보를 담아야 함..
 		session.setAttribute("admin", dto);
 		
-		return null;
+		ResponseEntity entity = ResponseEntity.status(HttpStatus.OK).build();
+		
+		return entity;
 	}
 	
 	@ExceptionHandler(AdminException.class)
 	public ResponseEntity handle(AdminException e) {
 		ResponseEntity entity = ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-				
-		return entity;
+		
+		return entity;	
 	}
 }
+
+
+
+
+
+

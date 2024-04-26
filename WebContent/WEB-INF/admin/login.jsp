@@ -67,7 +67,7 @@
 			data:$("form").serialize(),
 			success:function(result, status, xhr){
 				alert("인증 성공");
-				//관리자 메인 보낼 예정 location.href="/";
+				location.href="/";
 			},
 			error:function(xhr, status, err){
 				alert("인증실패");

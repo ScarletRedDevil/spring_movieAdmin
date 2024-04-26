@@ -1,4 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8"%>
+<%
+//세션이 존재하지않는 경우 이페 이지로 접근은 올바르지 않기 때문에 뒤로 돌림
+	if(session.getAttribute("admin")==null){
+		out.print("<script>");
+		out.print("alert('로그인이 필요한 서비스입니다');");
+		out.print("history.back()");
+		out.print("</script>");
+		
+	}
+%>
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
