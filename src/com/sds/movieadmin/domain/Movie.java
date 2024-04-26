@@ -25,7 +25,7 @@ public class Movie {
 	
 	//영화 웹요청 파라미터
 	private String curPage = "";//현재페이지
-	private String itemPerPage = "";//결과row수
+	private String itemPerPage = "30";//결과row수
 	private String directorNm = "";//감독명
 	private String openStartDt = "";//개봉연도 시작조건 ( YYYY )
 	private String openEndDt = "";//개봉연도 끝조건 ( YYYY )	
@@ -33,6 +33,9 @@ public class Movie {
 	private String prdtEndYear = "";//제작연도 끝조건    ( YYYY )
 	private String repNationCd = "";//대표국적코드 (공통코드서비스에서 '2204'로 조회된 국가코드)
 	private String[] movieTypeCdArr=null;//영화형태코드 배열 (공통코드서비스에서 '2201'로 조회된 영화형태코드)
+	
+	//이미지 웹 상의 경로
+	private String url;
 	
 }
 
