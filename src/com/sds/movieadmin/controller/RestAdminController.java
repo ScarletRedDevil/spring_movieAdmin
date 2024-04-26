@@ -1,5 +1,7 @@
 package com.sds.movieadmin.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +26,18 @@ public class RestAdminController {
 		ResponseEntity entity=ResponseEntity.status(HttpStatus.OK).build();
 		
 		return entity;
+	}
+	
+	//로그인 요청 처리
+	@PostMapping("/auth/admin")
+	public ResponseEntity login(Admin admin, HttpSession session) {
+		
+		Admin dto = adminService.loginCheck(admin);
+		
+		//세션에 관리자 정보를 담아야함
+		session.setAttribute("admin", dto);
+		
+		return null;
 	}
 	
 	@ExceptionHandler(AdminException.class)

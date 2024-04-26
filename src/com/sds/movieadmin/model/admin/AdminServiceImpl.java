@@ -25,9 +25,14 @@ public class AdminServiceImpl implements AdminService{
 		adminDAO.insert(admin);
 	}
 
-	public Admin loginCheck(Admin admin) {
+	public Admin loginCheck(Admin admin) throws AdminException{
+		//평문 비밀번호를 가져와 암호화하여 admin 에 set
+		admin.setAdmin_pwd(encryptionManager.getConvertedData(admin.getAdmin_pwd()));
 		
-		return null;
+		Admin dto = adminDAO.loginCheck(admin);
+		//dto라 이름주는 이유는 admin이라고 하면 기존 admin과 충돌 가능성 있어서 
+		
+		return dto;
 	}
 	
 
