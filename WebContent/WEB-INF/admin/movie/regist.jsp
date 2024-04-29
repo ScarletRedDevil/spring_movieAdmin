@@ -131,7 +131,7 @@
 					
 						<div class="col-md-12">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="상품명" name="product_name" name="url">
+								<input type="text" class="form-control" placeholder="이미지 URL" name="url">
 							</div>
 						</div>
 						
@@ -145,10 +145,10 @@
 						
 					<div class="row">						
 						<div class="col-sm-1">
-							<button class="btn btn-primary form-control" id="bt_regist">등록</button>
+							<button type="button" class="btn btn-primary form-control" id="bt_regist">등록</button>
 						</div>
 						<div class="col-sm-1">
-							<button class="btn btn-primary form-control" id="bt_list">목록</button>
+							<button type="button" class="btn btn-primary form-control" id="bt_list">목록</button>
 						</div>
 					</div>
 					<!-- 입력 폼이 나올 row 끝  -->
@@ -222,19 +222,20 @@
 		});	
 	}
 	
-	//비동기 등록 요청
+	//비동기 등록 요청 
 	function regist(){
 		$.ajax({
 			url:"/movie",
 			type:"post",
-			data:$("#form").serialize(),
-			success:function(result,status,xhr){
-				alert("등록성공");
+			data:$("form").serialize(),
+			success:function(result, status, xhr){
+				alert("등록 성공");
 			},
-			error:function(xhr,status,err){
-				alert("등록실패");
+			error:function(xhr, status, err){
+				alert("등록 실패");
 			}
-		})
+		
+		});			
 	}
 	
 	$(function(){
@@ -249,6 +250,7 @@
 			
 			searchMovie();
 		});
+		
 		$("#bt_regist").click(function(){
 			regist();
 		});

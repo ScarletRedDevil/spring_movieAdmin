@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.sds.movieadmin.domain.Movie;
+import com.sds.movieadmin.exception.MovieException;
 
 @Repository
 public class MybatisMovieDAO implements MovieDAO{
@@ -12,8 +13,12 @@ public class MybatisMovieDAO implements MovieDAO{
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
-	public void insert(Movie movie) {
+	public void insert(Movie movie)throws MovieException {
 		int result = sqlSessionTemplate.insert("Movie.insert", movie);
+		
+		if(result <1) {
+			throw new MovieException("영화 등록 실패");
+		}
 	}
 
 }
