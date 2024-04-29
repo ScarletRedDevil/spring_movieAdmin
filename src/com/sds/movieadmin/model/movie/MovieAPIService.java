@@ -16,11 +16,17 @@ import com.sds.movieadmin.domain.MovieType;
 import com.sds.movieadmin.domain.Nation;
 
 import kr.or.kobis.kobisopenapi.consumer.rest.KobisOpenAPIRestService;
+import kr.or.kobis.kobisopenapi.consumer.soap.movie.MovieAPIServiceImplService;
+import kr.or.kobis.kobisopenapi.consumer.soap.movie.MovieInfoResult;
+import kr.or.kobis.kobisopenapi.consumer.soap.movie.OpenAPIFault;
 
 //api 호출하여 각종 정보를 가져오는 전담 서비스 (영화, 나라정보, 유형, 영화조회..)
 @Service
 public class MovieApiService {
 
+	@Autowired
+	private String key;
+		
 	@Autowired
 	private KobisOpenAPIRestService kobisOpenAPIRestService;	
 	
@@ -114,7 +120,29 @@ public class MovieApiService {
 	/*---------------------------------------------------------
 	영화 1건 조회
 	---------------------------------------------------------*/
-	public Movie getMovie() {
+	public Movie getMovie(Movie movie) {
+		MovieInfoResult movieInfoResult = null;
+		
+		try {
+			movieInfoResult = new MovieAPIServiceImplService().getMovieAPIServiceImplPort().searchMovieInfo(key, movie.get);
+			
+			movieInfoResult.getMovieInfo().getMovieNm(); //영화이름
+			movieInfoResult.getMovieInfo().getPrdtYear();//제작일 
+			
+			
+		} catch (OpenAPIFault e) {
+			e.printStackTrace();
+		}
+		
+		//영화 1건 조회하기 
 		return null;
 	}
 }
+
+
+
+
+
+
+
+
