@@ -36,11 +36,14 @@ public class MovieServiceImpl implements MovieService{
 	}
 	@Override
 	public List selectAll(Map map) {
-		List siteMovieList = movieDAO.selectAll(map); //우리 사이트에 등록된 목록...이 List 에 들어있는 Movie에는 
+		List<Movie> siteMovieList = movieDAO.selectAll(map); //우리 사이트에 등록된 목록...이 List 에 들어있는 Movie에는 
 		//  영화코드와 url만 존재함..따라서 영화코드를 이용하여 한건 가져오기 조회를 통해 비어있는 영화정보를 Movie dto 에 채워넣자
 		
-		
-		return null;
+		for(Movie movie : siteMovieList) {
+			//오픈 api 호출 객체에게   Movie DTO 맡겨서, 채워진 상태로 돌려받자!
+			movieApiService.getMovie(movie);			
+		}
+		return siteMovieList;
 	}
 	
 	//1건 등록

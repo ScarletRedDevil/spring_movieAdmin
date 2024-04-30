@@ -1,3 +1,4 @@
+<%@page import="com.sds.movieadmin.domain.Director"%>
 <%@page import="com.sds.movieadmin.domain.Movie"%>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html;charset=UTF-8"%>
@@ -80,9 +81,9 @@
 		                            <th>이미지</th>
 		                            <th>영화코드</th>
 		                            <th>영화명</th>
-		                            <th>영화유형</th>
-		                            <th>국가명</th>
+		                            <th>개봉일</th>
 		                            <th>제작년도</th>
+		                            <th>감독</th>
 		                        </tr>
 		                    </thead>
 		                    <tbody>
@@ -90,11 +91,21 @@
 		                    	<%Movie movie = movieList.get(i); %>
 		                        <tr>
 		                            <td><%=i%></td>
-		                            <td><%=movie.getMovieCd()%></td>
+		                            <td><img src="<%=movie.getUrl()%>" width="40px" height="43px"></td>
+		                            <td><%=movie.getMovieCd() %></td>
 		                            <td><%=movie.getMovieNm() %></td>
-		                            <td><%=movie.getTypeNm() %></td>
-		                            <td><%=movie.getNationAlt() %></td>
+		                            <td><%=movie.getOpenDt()%></td>
 		                            <td><%=movie.getPrdtYear() %></td>
+		                            <%
+		                            	//감독수만큼 반복문 돌려서 누적된 명단 출력
+		                            	StringBuilder sb = new StringBuilder();
+		                            	for(int j=0;j<movie.getDirectors().size();j++){
+		                            		Director director = movie.getDirectors().get(j);
+		                            		sb.append(director.getPeopleNm());	//박찬욱, 스필버그, ㅋㅋㅋ
+		                            		if(j < movie.getDirectors().size()-1)sb.append(",");
+		                            	}
+		                            %>
+		                            <td><%=sb.toString() %></td>
 		                        </tr>
 		                        <%} %>
 		                    </tbody>

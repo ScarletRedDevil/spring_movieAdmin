@@ -68,6 +68,7 @@ public class MovieController {
 		List movieList = movieService.selectAll(map);
 		
 		model.addAttribute("movieList", movieList);//4단계: 결과 저장
+		model.addAttribute("pager",pager);
 		
 		return "admin/movie/site_list";
 	}
